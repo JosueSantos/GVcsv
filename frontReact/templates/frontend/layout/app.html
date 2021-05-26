@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html>
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title%}GV - Gestor de Vulnerabilidades{% endblock%}</title>
+  
+  <link rel="stylesheet" href="{% static "frontend/css/style.css" %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
+</head> 
+<body>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <main>
+    {% if user.is_authenticated %}
+      <ul class="sidebar-nav">
+        <li>{{ user.get_username }}</li>
+        <li><a href="{% url 'logout'%}?next={{request.path}}">Sair</a></li>
+      </ul>
+    {% endif %} 
+    
+    <div class="container">
+      <img alt="Gestor de Vulnerabilidades" src="{% static "frontend/img/GV_logo.png" %}" class="logo">
+      {% block content%}
+      {% endblock%}
+    </div>
+  </main>
+</body> 
+</html>

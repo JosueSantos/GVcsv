@@ -1,0 +1,85 @@
+{% extends 'layout/app.html'%}
+
+{% block content %}
+  {% load static %}
+  <div class="bk-gray">
+    Adicionar Novas Vulnerabilidades a serem analisadas:
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="newVulnerabilities">
+      <input type="submit" value="Upload"/>
+    </form>
+  </div>
+
+  {% if message %}
+  <label class="info">{{ message }}</label>
+  {% endif %}
+
+  {% if vulnerabilities.count > 0 %}
+  Média de Risco Por Ambiente
+  <table id="vulnerabilitiesHost">
+    <thead>
+      <tr>
+        <th>asset_hostmane</th>
+        <th>avg_cvss</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for vulnerability in vulnerabilitiesHost %}
+      <tr>
+        <th> {{ vulnerability.asset_hostmane }}</th>
+        <th> {{ vulnerability.avg_cvss }}</th>
+      </tr> 
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <table id="vulnerability">
+    <thead>
+      <tr>
+        <th>check</th>
+        <th>asset_hostmane</th>
+        <th>asset_ip_address</th>
+        <th>vulnerability_title</th>
+        <th>vulnerability_severity</th>
+        <th>vulnerability_cvss</th>
+        <th>vulnerability_publication_date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for vulnerability in vulnerabilities %}
+      <tr>
+        <th onclick="makeDELETErequest({{ vulnerability.id }}, '{{ vulnerability.asset_hostmane }}')"> &#10004; </th>
+        <th> {{ vulnerability.asset_hostmane }}</th>
+        <th> {{ vulnerability.asset_ip_address }}</th>
+        <th> {{ vulnerability.vulnerability_title }}</th>
+        <th> {{ vulnerability.vulnerability_severity }}</th>
+        <th> {{ vulnerability.vulnerability_cvss }}</th>
+        <th> {{ vulnerability.vulnerability_publication_date }}</th>
+      </tr> 
+    {% endfor %}
+    </tbody>
+  </table>
+  
+  <script>
+    $(document).ready(function() {
+        const table = $('#vulnerability').DataTable();
+        $('#vulnerabilitiesHost').DataTable({
+          "order": [[ 1, "desc" ]]
+        });
+    } );
+
+    function makeDELETErequest(id, name) {
+      if(confirm("Desea Marcar como corrigida a vulnarabilidade do hostname " + name)){
+        const input = $('input[type="file"]');
+        input.attr('type', 'text');
+        input.attr('name', 'id');
+        input.attr('value', id);
+
+        $('form').submit();
+      }
+    }
+  </script>
+  {% endif %}
+
+{% endblock %}

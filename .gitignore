@@ -1,0 +1,6 @@
+frontReact/node_modules
+reactApp/node_modules
+reactWithTypescript/node_modules
+gv/.env
+db.sqlite3
+**/__pycache__/**

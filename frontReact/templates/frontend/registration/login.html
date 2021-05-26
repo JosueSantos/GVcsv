@@ -1,0 +1,28 @@
+{% extends 'layout/app.html'%}
+
+{% block content %}
+  {% load static %}
+
+  {% if form.errors %}
+    <label class="error">Seu nome de usuário e senha não coincidem. Por favor, tente novamente.</label>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td class="p-l">Usuário</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td class="p-l">Senha</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="Login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  <label class="info">Solicite usuário e senha ao administrador.</label>
+
+{% endblock %}

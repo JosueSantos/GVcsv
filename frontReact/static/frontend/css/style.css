@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+}
+
+.logo {
+    width: 15%;
+    margin: 2em;
+}
+
+.error {
+    color: rgb(230, 99, 99);
+    font-size: .9em;
+}
+
+.info {
+    color: rgb(46, 130, 163);
+    font-size: .9em;
+}
+
+input[type='submit'] {
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid black;
+    padding: .1em;
+    min-width: 10em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+    margin: 1em;
+    cursor: pointer;
+}
+
+input[type='file']::file-selector-button {
+    padding: .1em;
+    min-width: 10em;
+    font-family: 'Oswald', sans-serif;
+    margin: 1em;
+    cursor: pointer;
+}
+
+.p-l {
+    padding: .5em;
+}
+
+.bk-gray {
+    background-color: rgba(194, 201, 207, 0.671);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 5%;
+}
+ul li {
+    position:relative;
+    float: left;
+    border-right:1px solid #c0c0c0;
+    margin: 1em;
+    padding: .3em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+}
+
+#vulnerabilitiesHost {
+    width: 30%;
+}
