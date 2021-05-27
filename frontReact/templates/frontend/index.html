@@ -20,14 +20,14 @@
   <table id="vulnerabilitiesHost">
     <thead>
       <tr>
-        <th>asset_hostmane</th>
+        <th>asset_hostname</th>
         <th>avg_cvss</th>
       </tr>
     </thead>
     <tbody>
     {% for vulnerability in vulnerabilitiesHost %}
       <tr>
-        <th> {{ vulnerability.asset_hostmane }}</th>
+        <th> {{ vulnerability.asset_hostname }}</th>
         <th> {{ vulnerability.avg_cvss }}</th>
       </tr> 
     {% endfor %}
@@ -38,7 +38,7 @@
     <thead>
       <tr>
         <th>check</th>
-        <th>asset_hostmane</th>
+        <th>asset_hostname</th>
         <th>asset_ip_address</th>
         <th>vulnerability_title</th>
         <th>vulnerability_severity</th>
@@ -49,8 +49,8 @@
     <tbody>
     {% for vulnerability in vulnerabilities %}
       <tr>
-        <th onclick="makeDELETErequest({{ vulnerability.id }}, '{{ vulnerability.asset_hostmane }}')"> &#10004; </th>
-        <th> {{ vulnerability.asset_hostmane }}</th>
+        <th onclick="makeDELETErequest({{ vulnerability.id }}, '{{ vulnerability.asset_hostname }}')"> &#10004; </th>
+        <th> {{ vulnerability.asset_hostname }}</th>
         <th> {{ vulnerability.asset_ip_address }}</th>
         <th> {{ vulnerability.vulnerability_title }}</th>
         <th> {{ vulnerability.vulnerability_severity }}</th>

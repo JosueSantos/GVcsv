@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='VulnerabilityItem',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('asset_hostmane', models.CharField(max_length=200)),
+                ('asset_hostname', models.CharField(max_length=200)),
                 ('asset_ip_address', models.CharField(max_length=200)),
                 ('vulnerability_title', models.CharField(max_length=300)),
                 ('vulnerability_severity', models.CharField(max_length=50)),

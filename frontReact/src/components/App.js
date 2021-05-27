@@ -37,7 +37,7 @@ class App extends Component {
         {this.state.data.map(vulnerability => {
           return (
             <tr key={vulnerability.id} style="border: 1px solid black;">
-              <td>{vulnerability.asset_hostmane}</td>
+              <td>{vulnerability.asset_hostname}</td>
               <td>{vulnerability.asset_ip_address}</td>
               <td>{vulnerability.vulnerability_title}</td>
               <td>{vulnerability.vulnerability_severity}</td>

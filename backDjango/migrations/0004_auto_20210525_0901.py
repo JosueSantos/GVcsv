@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('backDjango', '0003_alter_vulnerabilityitem_asset_hostmane'),
+        ('backDjango', '0003_alter_vulnerabilityitem_asset_hostname'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='vulnerabilityitem',
-            name='asset_hostmane',
+            name='asset_hostname',
             field=models.CharField(max_length=200),
         ),
         migrations.AlterModelTable(

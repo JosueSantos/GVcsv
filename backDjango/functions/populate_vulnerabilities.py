@@ -14,7 +14,7 @@ def populate_vulnerabilities_from_csv(fileCsv):
         batch_number = 1 + batch_number
 
         vulnerability = VulnerabilityItem(
-            asset_hostmane = row['ASSET - HOSTNAME'],
+            asset_hostname = row['ASSET - HOSTNAME'],
             asset_ip_address = row['ASSET - IP_ADDRESS'],
             vulnerability_title = row['VULNERABILITY - TITLE'],
             vulnerability_severity = row['VULNERABILITY - SEVERITY'],

@@ -9,4 +9,4 @@ def deleteFixedVulnerability(id):
     return VulnerabilityItem.objects.all()
 
 def getOnlyHostname():
-    return VulnerabilityItem.objects.values('asset_hostmane').annotate(avg_cvss=Avg('vulnerability_cvss')).order_by('-avg_cvss')
+    return VulnerabilityItem.objects.values('asset_hostname').annotate(avg_cvss=Avg('vulnerability_cvss')).order_by('-avg_cvss')
